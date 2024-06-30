@@ -4,22 +4,25 @@ import java.time.LocalDate;
 import java.util.UUID;
 
 public abstract class Employee {
-    private int id;
+    private final int id;
     private String name;
-    private double salary;
+    private double salary = 25000;
     private LocalDate dateHired;
-    private int sequencer = 0;
 
     // Constructor
-    public Employee(int id, String name, LocalDate dateHired) {
-        this.id = getId();
+    public Employee(String name, LocalDate dateHired) {
+        this.id = setId();
         this.name = name;
         this.dateHired = dateHired;
+    }
+    private int setId() {
+        // Generate a random number between 10 and 300.
+        return (int) (Math.random() * (300 - 10 + 1) + 10);
     }
 
     // Getters and Setters
     public int getId() {
-        return ++sequencer;
+        return id;
     }
     public String getName() {
         return name;
