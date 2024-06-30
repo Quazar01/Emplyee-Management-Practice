@@ -1,7 +1,6 @@
 package se.lexicon;
 
 import java.time.LocalDate;
-import java.util.UUID;
 
 public abstract class Employee {
     private final int id;
@@ -44,6 +43,15 @@ public abstract class Employee {
         this.dateHired = dateHired;
     }
 
+    public int getArrayCount (String[] input) {
+        int count = 0;
+        for (String element : input) {
+            if (element != null) {
+                count ++;
+            }
+        }
+        return count;
+    }
 
     public abstract void calculateSalary();
 }
