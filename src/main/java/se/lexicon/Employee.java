@@ -11,8 +11,8 @@ public abstract class Employee {
     // Constructor
     public Employee(String name, LocalDate dateHired) {
         this.id = setId();
-        this.name = name;
-        this.dateHired = dateHired;
+        setName(name);
+        setDateHired(dateHired);
     }
     private int setId() {
         // Generate a random number between 10 and 300.
@@ -25,6 +25,9 @@ public abstract class Employee {
     }
     public String getName() {
         return name;
+    }
+    public double getBaseSalary() {
+        return 25000;
     }
     public double getSalary() {
         return salary;
@@ -43,7 +46,7 @@ public abstract class Employee {
         this.dateHired = dateHired;
     }
 
-    public int getArrayCount (String[] input) {
+    protected int getArrayCount (String[] input) {
         int count = 0;
         for (String element : input) {
             if (element != null) {
@@ -53,5 +56,5 @@ public abstract class Employee {
         return count;
     }
 
-    public abstract void calculateSalary();
+    protected abstract void calculateSalary();
 }

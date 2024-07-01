@@ -52,9 +52,26 @@ public class SalesPerson extends Employee {
         }
     }
 
+    public void removeClient(String client){
+        // We don't need to decrement acquiredClients here, because acquiredClients is the number of clients acquired.
+        int clientCount = getArrayCount(clients);
+        if (clientCount > 0){
+            for (int i = 0; i < clients.length; i++){
+                if (clients[i] != null && clients[i].equalsIgnoreCase(client)){
+                    clients[i] = null;
+                    break;
+                }
+            }
+            calculateSalary();
+        }
+        else {
+            System.out.println("Client list is empty, can't remove clients!");
+        }
+    }
+
     @Override
     public void calculateSalary() {
-        double baseSalary = 25000;
+        double baseSalary = getBaseSalary();
         int clientCount = getArrayCount(clients);
         double updatedSalary = baseSalary + (acquiredClients * 1000) + (clientCount * 500);
         setSalary(updatedSalary);

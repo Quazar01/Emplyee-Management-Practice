@@ -77,12 +77,12 @@ public class SystemDeveloper extends Employee {
 
     @Override
     public void calculateSalary() {
-        double baseSalary = 25000;
+        double baseSalary = getBaseSalary();
         int certificateCount = getArrayCount(certificates);
         int languageCount = getArrayCount(languages);
 
-        double newSalary = baseSalary + (certificateCount * 1000) + (languageCount * 1500);
-        setSalary(newSalary);
+        double updatedSalary = baseSalary + (certificateCount * 1000) + (languageCount * 1500);
+        setSalary(updatedSalary);
     }
 
     @Override
